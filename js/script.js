@@ -90,18 +90,28 @@
 //в іншому випадку виводити рядок "Невірний пароль!"
 
 
-const login = prompt("Ведіть свій логін");
-console.log(login);
-if (login === "Адмін") {
-  const password = prompt("Ведіть пароль"); 
-  // if (password === "Я головний") { alert("Вітаю!") }
-  // else { alert("Невірний пароль!")}
-  alert(password === "Я головний" ? "Вітаю!" : "Невірний пароль!")
+// const login = prompt("Ведіть свій логін");
+// console.log(login);
+// if (login === "Адмін") {
+//   const password = prompt("Ведіть пароль");
+//   // if (password === "Я головний") { alert("Вітаю!") }
+//   // else { alert("Невірний пароль!")}
+//   alert(password === "Я головний" ? "Вітаю!" : "Невірний пароль!")
 
+// }
+// else if (login === "" || login === null) {
+//   alert("Скасовано")
+// }
+// else {
+//   alert("Я вас не знаю")
+// }
+
+// Task_6
+// Переверни рядок у зворотньому порядку
+const string = "Hello";
+let reversString = "";
+for (let i = string.length - 1; i >= 0; i -= 1) {
+    // console.log(string[i])
+    reversString += string[i].toLowerCase()
 }
-else if (login === "" || login === null) {
-  alert("Скасовано")
-}
-else {
-  alert("Я вас не знаю")
-}
+console.log(reversString);
