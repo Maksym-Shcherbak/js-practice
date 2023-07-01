@@ -52,22 +52,56 @@
 // '2' - 'весна' і так далі. Розв'яжіть завдання через switch-case
 
 
-const nam = prompt("enter number");
-let result = "";
-switch(nam) {
-  case "1":
-    result = "зима"
-    break
-    case "2":
-    result = "весна"
-    break
-    case "3":
-    result = "літо"
-    break
-    case "4":
-    result = "осінь"
-    break
-    default:
-      result = " введіть число від 1-4"
+// const nam = prompt("enter number");
+// let result = "";
+// switch(nam) {
+//   case "1":
+//     result = "зима"
+//     break
+//     case "2":
+//     result = "весна"
+//     break
+//     case "3":
+//     result = "літо"
+//     break
+//     case "4":
+//     result = "осінь"
+//     break
+//     default:
+//       result = " введіть число від 1-4"
+// }
+// console.log(result);
+
+// Task 5
+
+//Напишіть код, який буде питати
+//логін за допомогою prompt и логіровати результат
+//в консоль браузера
+
+//Якщо користувач вводить "Адмін",
+//то prompt запрашує пароль.
+//Якщо ничого не ввели чи нажата клавіша Esc
+//вивести строку "Скасовано"
+//В противному випадку вивести рядок "Я вас не знаю"
+
+//Пароль перевіряти так:
+//Якщо введен пароль "Я головний",
+//то вивести рядок "Вітаю!"
+//в іншому випадку виводити рядок "Невірний пароль!"
+
+
+const login = prompt("Ведіть свій логін");
+console.log(login);
+if (login === "Адмін") {
+  const password = prompt("Ведіть пароль"); 
+  // if (password === "Я головний") { alert("Вітаю!") }
+  // else { alert("Невірний пароль!")}
+  alert(password === "Я головний" ? "Вітаю!" : "Невірний пароль!")
+
 }
-console.log(result);
+else if (login === "" || login === null) {
+  alert("Скасовано")
+}
+else {
+  alert("Я вас не знаю")
+}
