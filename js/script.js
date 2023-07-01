@@ -117,7 +117,7 @@
 // TASK _7
 // Напишіть if..else, що відповідає наступному switch:
 
-const browser = prompt("Enter your browser");
+// const browser = prompt("Enter your browser");
 
 // switch (browser) {
 //   case "Edge":
@@ -135,15 +135,30 @@ const browser = prompt("Enter your browser");
 //     alert("We hope that this page looks ok!");
 // }
 
-if (browser === "Edge") {
-  alert("You've got the Edge!");
-} else if (
-  browser === "Chrome" ||
-  browser === "Firefox" ||
-  browser === "Safari" ||
-  browser === "Opera"
-) {
-  alert("Okay we support these browsers too");
+// if (browser === "Edge") {
+//   alert("You've got the Edge!");
+// } else if (
+//   browser === "Chrome" ||
+//   browser === "Firefox" ||
+//   browser === "Safari" ||
+//   browser === "Opera"
+// ) {
+//   alert("Okay we support these browsers too");
+// } else {
+//   alert("We hope that this page looks ok!");
+// }
+
+//Якщо число ділитися на 3 повертати
+//fizz якщо ділитися на 5 повертати buzz
+//Якщо ділитися на 3 і на 5 повернути fizzbuzz
+
+const number = prompt("Введіть число:");
+if (number % 3 === 0 && number % 5 === 0) {
+  alert("fizzbuzz");
+} else if (number % 3 === 0) {
+  alert("fizz");
+} else if (number % 5 === 0) {
+  alert("buzz");
 } else {
-  alert("We hope that this page looks ok!");
+  alert(number);
 }
