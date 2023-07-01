@@ -51,7 +51,6 @@
 // значення '1', то у змінну result запишемо 'зима', якщо має значення
 // '2' - 'весна' і так далі. Розв'яжіть завдання через switch-case
 
-
 // const nam = prompt("enter number");
 // let result = "";
 // switch(nam) {
@@ -89,7 +88,6 @@
 //то вивести рядок "Вітаю!"
 //в іншому випадку виводити рядок "Невірний пароль!"
 
-
 // const login = prompt("Ведіть свій логін");
 // console.log(login);
 // if (login === "Адмін") {
@@ -108,10 +106,44 @@
 
 // Task_6
 // Переверни рядок у зворотньому порядку
-const string = "Hello";
-let reversString = "";
-for (let i = string.length - 1; i >= 0; i -= 1) {
-    // console.log(string[i])
-    reversString += string[i].toLowerCase()
+// const string = "Hello";
+// let reversString = "";
+// for (let i = string.length - 1; i >= 0; i -= 1) {
+//     // console.log(string[i])
+//     reversString += string[i].toLowerCase()
+// }
+// console.log(reversString);
+
+// TASK _7
+// Напишіть if..else, що відповідає наступному switch:
+
+const browser = prompt("Enter your browser");
+
+// switch (browser) {
+//   case "Edge":
+//     alert("You've got the Edge!");
+//     break;
+
+//   case "Chrome":
+//   case "Firefox":
+//   case "Safari":
+//   case "Opera":
+//     alert("Okay we support these browsers too");
+//     break;
+
+//   default:
+//     alert("We hope that this page looks ok!");
+// }
+
+if (browser === "Edge") {
+  alert("You've got the Edge!");
+} else if (
+  browser === "Chrome" ||
+  browser === "Firefox" ||
+  browser === "Safari" ||
+  browser === "Opera"
+) {
+  alert("Okay we support these browsers too");
+} else {
+  alert("We hope that this page looks ok!");
 }
-console.log(reversString);
