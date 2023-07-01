@@ -152,13 +152,33 @@
 //fizz якщо ділитися на 5 повертати buzz
 //Якщо ділитися на 3 і на 5 повернути fizzbuzz
 
-const number = prompt("Введіть число:");
-if (number % 3 === 0 && number % 5 === 0) {
-  alert("fizzbuzz");
-} else if (number % 3 === 0) {
-  alert("fizz");
-} else if (number % 5 === 0) {
-  alert("buzz");
-} else {
-  alert(number);
+// const number = prompt("Введіть число:");
+// if (number % 3 === 0 && number % 5 === 0) {
+//   alert("fizzbuzz");
+// } else if (number % 3 === 0) {
+//   alert("fizz");
+// } else if (number % 5 === 0) {
+//   alert("buzz");
+// } else {
+//   alert(number);
+// }
+
+
+// В змінній minuteValue є число від 0 до 59.
+// Визначте до якої чверті години входить
+// це число(в першу, другу, треттю чи четверту).
+
+const minuteValue = Math.floor(Math.random() * (59 - 0) + 0);
+
+if (minuteValue <= 15) {
+  alert(`${minuteValue} Входить в першу чверть`);
+}
+else if (minuteValue <= 30) {
+  alert(`${minuteValue} Входить в другу чверть`);
+}
+else if (minuteValue <= 45) {
+  alert(`${minuteValue} Входить в третю чверть`);
+}
+else {
+  alert(`${minuteValue} Входить в четверту чверть`);
 }
