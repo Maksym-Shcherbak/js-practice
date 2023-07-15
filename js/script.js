@@ -194,16 +194,16 @@
 //Робити перевірку,що користувач ввів саме число,
 //а не довільний набір символів, не потрібно.
 
-let nam = prompt("Введіть число");
+let num = prompt("Введіть число");
 let total = 0;
-while (nam) {
-  nam = Number(nam);
-  if (isNaN(nam)) {
+while (num) {
+  num = Number(num);
+  if (isNaN(num)) {
     alert("Ви ввели невірне значення");
-    nam = prompt("Введіть число");
+    num = prompt("Введіть число");
   } else {
-    total += nam;
-    nam = prompt("Введіть число");
+    total += num;
+    num = prompt("Введіть число");
   }
 }
 alert(`Загальна сумма введенних чисел дорівнює ${total}.`);
