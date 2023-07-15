@@ -5,16 +5,16 @@
 //Видаліть перший елемент масива та виведіть його в консоль
 // Додайте 'Реп' та 'Реггі' на початок списку.
 
-const styles = ["Джаз", "Блюз"];
+// const styles = ["Джаз", "Блюз"];
 
-styles.push("Рок-н-ролл");
-const index = styles.indexOf("Блюз");
-styles.splice(index, 1, "Класика");
+// styles.push("Рок-н-ролл");
+// const index = styles.indexOf("Блюз");
+// styles.splice(index, 1, "Класика");
 
-console.log(styles.shift());
+// console.log(styles.shift());
 
-styles.unshift("Реп", "Реггі");
-console.log(styles);
+// styles.unshift("Реп", "Реггі");
+// console.log(styles);
 
 //TASK 2
 // Напиши функцію, яка перебирає масив логінів і перевіряє
@@ -62,3 +62,40 @@ console.log(styles);
 //   }
 // }
 // logItems(styles);
+
+
+//TASK 5 
+
+// Наступна функція повертає true, якщо параметр age більше 18.
+// В іншому випадку вона запитує підтвердження через confirm і повертає його результат:
+
+// const age = prompt("Enter your age");
+ 
+// function isAdult(age) {
+//     if (age >= 18) {
+//         return true;
+//     }
+//     else {
+//         return confirm('Are you really adult?')
+//     }
+// }
+
+// console.log(isAdult(age))
+
+
+//TASK 6
+
+// напиши функцію яка сумуватиме сусідні числа і пушити в новий масив
+
+// const someArr = [22, 11, 34, 5, 12, 13, 14, 15];
+
+// function getSum(array) {
+//     const newArray = [];
+//     for (let i = 0; i < array.length - 1; i += 1) {
+//         newArray.push(array[i] + array[i + 1]);
+//     }
+//     return newArray
+// }
+
+
+// console.log(getSum(someArr))
