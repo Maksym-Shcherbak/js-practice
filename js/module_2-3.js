@@ -63,14 +63,13 @@
 // }
 // logItems(styles);
 
-
-//TASK 5 
+//TASK 5
 
 // Наступна функція повертає true, якщо параметр age більше 18.
 // В іншому випадку вона запитує підтвердження через confirm і повертає його результат:
 
 // const age = prompt("Enter your age");
- 
+
 // function isAdult(age) {
 //     if (age >= 18) {
 //         return true;
@@ -81,7 +80,6 @@
 // }
 
 // console.log(isAdult(age))
-
 
 //TASK 6
 
@@ -97,5 +95,48 @@
 //     return newArray
 // }
 
-
 // console.log(getSum(someArr))
+
+// TASK 7
+//Напишіть функцію caclculateAverage()
+//яка приймає довільну кількість
+//аргументів і повертає їхнє середнє значення.
+//Додати перевірку, що аргументи це числа.
+
+// function caclculateAverage(...args) {
+//   let total = 0;
+//   let count = 0;
+
+//   for (const arg of args) {
+//     if (typeof arg === "number") {
+//       total += arg;
+//       count += 1;
+//     }
+//   }
+//   return total / count;
+// }
+// console.log(caclculateAverage(1, 2, 3, 4, 5));
+
+// TASK 8
+//Напиши скрипт, який для об'єкту user,
+//послідовно:
+//1 додасть поле mood зі значенням 'happy'
+//2 замінить hobby на 'skydiving'
+//3 замінить значення premium на false
+//4 виводить зміст об'єкта users у форматі
+//ключ:значення використовуя Object.keys() та for...of
+const user = {
+  name: "John",
+  age: 20,
+  hobby: "tenis",
+  premium: true,
+};
+user.mood = "happy";
+user.hobby = "skydiving";
+user.premium = false;
+
+const userKeys = Object.keys(user);
+
+for (const key of userKeys) {
+  console.log(`${key} : ${user[key]}`);
+}
