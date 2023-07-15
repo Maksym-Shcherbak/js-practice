@@ -185,3 +185,136 @@
 //   return totalPrice;
 // }
 // console.log(calcTotalPrice(stones, "Сапфір"));
+
+//TASK 11
+//4. Створіть об'єкт calculator з трьомя методами
+//read(a, b) - приймає два аргумента і зберігає їх
+//як властивості об'єкта
+//sum() повертає сумму збереженних значень (з перевіркою на наявніст властивостей в об'єкті)
+//mult() перемножає збереженні значення і повертає результат
+
+// const calculator = {
+//   read(a, b) {
+//     if (a) this.value1 = a;
+//     if (b) this.value2 = b;
+//   },
+//   sum() {
+//     if (this.value1 && this.value2) {
+//       return this.value1 + this.value2;
+//     }
+//     return "Немає потрібних значень";
+//   },
+//   mult() {
+//     if (this.value1 && this.value2) {
+//       return this.value1 * this.value2;
+//     }
+//     return "Немає потрібних значень";
+//   },
+// };
+
+// calculator.read(6);
+// console.log(calculator.sum());
+// console.log(calculator.mult());
+// console.log(calculator);
+
+//TASK 12
+//7. Напишіть скрипт керування особистим кабінетом інтернет банка
+//Є об'єкт account в якому необхідно реалізувати
+//методи для работи з балансом та історією транзакцій
+
+//Типів транзакцій всього два.
+//Можна покласти або зняти гроші з рахунка
+const Transaction = {
+  DEPOSIT: "deposit",
+  WITHDRAW: "withdraw",
+};
+
+//Кожна транзакція це об'єкт з властивостями id, type, amount
+
+const account = {
+  //поточний баланс рахунка
+  balance: 0,
+
+  //Історія транзакцій
+  transactions: [],
+
+  //Метод створює і повертає об'єкт транзакцій
+  //Приймає сумму і тип транзакцій
+  createTransaction(type, amount) {
+    return {
+      type,
+      amount,
+    };
+  },
+  //Метод відповідає за додавання сумми к балансу.
+  //Приймає сумму транзакціи.
+  //Визиває createTransaction для створення об'єкта транзакціи
+  //після чого додає його в історію транзакцій
+  deposit(amount) {
+    this.balance += amount;
+    const transaction = this.createTransaction(Transaction.DEPOSIT, amount);
+    this.transactions.push({ ...transaction, id: amount });
+    return this.transactions;
+  },
+  //Метод відповідає за зняття сумми з балансу.
+  //Приймає сумму транзакціи.
+  //Визиває createTransaction для створення об'єкта транзакціи
+  //після чого додає йогого в історю транзакцій
+  //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
+  //що недостатньо коштів на рахунку
+  withdraw(amount) {
+    if (amount <= this.balance) {
+      this.balance -= amount;
+      const transaction = this.createTransaction(Transaction.WITHDRAW, amount);
+      this.transactions.push({
+        ...transaction,
+        id: Math.random().toFixed(4),
+      });
+      return this.transactions;
+    }
+    return "Недостатньо коштів на рахунку";
+  },
+  //Метод повертає поточний баланс
+  getBalance() {
+    return `На вашому рахунку ${this.balance} коштів`;
+  },
+
+  //Метод шукає і повертає об'єкт транзакціи по id
+  getTransactionDetails(id) {
+    for (const transaction of this.transactions) {
+      if (transaction.id === id) {
+        return transaction;
+      }
+    }
+    return "Транзакцію не знайдено";
+  },
+
+  //Метод повертає кількіств коштів вказаного типу
+  //транзакціи зі всієї історії транзакцій
+  getTransactionType(type) {
+    let totalTransactions = 0;
+    for (const transaction of this.transactions) {
+      if (transaction.type === type) {
+        totalTransactions += transaction.amount;
+      }
+    }
+    return totalTransactions;
+  },
+  removeTransaction(id) {
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      if (this.transactions[i].id === id) {
+        this.transactions.splice(i, 1);
+        return this.transactions;
+      }
+    }
+  },
+};
+// Math.random().toFixed(4) }
+console.log(account.deposit(5600));
+console.log(account.withdraw(3400));
+console.log(account.withdraw(5800));
+console.log(account.deposit(4580));
+console.log(account.getTransactionDetails(5700));
+console.log(account.getTransactionType(Transaction.DEPOSIT));
+console.log(account.removeTransaction(5600));
+console.log(account.getBalance());
