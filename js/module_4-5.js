@@ -190,3 +190,126 @@ const users = [
 // }
 
 // console.log(calculateTotalBalance(users));
+
+// TASK 8
+
+// Класи
+
+//1. Створи клас User для створення користувача з такими властивостями:
+//a. userName - ім'я, рядок
+//b. age - вік, число
+//c. numbersOfPost - кількість постів, число
+//d. конструктор очікує 1 параметр - об'єкт налаштувань з однойменними властивостями
+//Додай метод getInfo(), який повертає рядок:
+//`Користувачеві ${} ${} років і в нього ${} публікацій.`
+
+// class User {
+//   constructor({ userName, age, numbersOfPost }) {
+//     this.userName = userName;
+//     this.age = age;
+//     this.numbersOfPost = numbersOfPost;
+//   }
+//   getInfo() {
+//     console.log(
+//       `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`
+//     );
+//   }
+// }
+// const user1 = new User({
+//   userName: "Mango",
+//   age: 34,
+//   numbersOfPost: 15,
+// });
+// console.log(user1);
+// user1.getInfo();
+
+// TASK 9
+// Напиши класс Client який створює об'єкт
+//із властивостями login, email
+//Об'яви приватні властивості #login і #email,
+//доступ до яких зроби через геттер и сеттер:
+// get getClientData() має повертати об'єкт з переліченими властивостями
+// set changeEmail(newEmail) перезаписує пошту користувача
+
+// class Client {
+//   #login;
+//   #email;
+//   constructor(login, email) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+//   get getClientData() {
+//     return { clientLogin: this.#login, clientEmail: this.#email };
+//   }
+//   set changeEmail(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+// const newClient = new Client("Mango", "vgi@gmai.com");
+// console.log(newClient);
+// newClient.changeEmail = "hyfy@gmai.com";
+// console.log(newClient.getClientData);
+
+// TASK 10
+
+// Створити клас Worker, у якого є властивості name, age, salary.
+//У класу Worker є метод getSalary, який повертає повідомлення
+//"Worker <name> has salary <salary> dollars"
+//Створити клас TopLevelWorker, у якого є властивість position
+//і який успадковує клас Worker, додаючи метод getPosition
+// який повертає повідомлення "<name> works as <position>"
+
+// class Worker {
+//   constructor(obj) {
+//     const { name, age, salary } = obj;
+//     this.name = name;
+//     this.age = age;
+//     this.salary = salary;
+//   }
+//   getSalary() {
+//     console.log(`Worker ${this.name} has salary ${this.salary} dollars`);
+//   }
+// }
+// class TopLevelWorker extends Worker {
+//   constructor(obj, position) {
+//     super(obj);
+//     this.position = position;
+//   }
+//   getPosition() {
+//     console.log(`${this.name} works as ${this.position}`);
+//   }
+// }
+// const tango = { name: "Tango", age: 15, salary: 1560 };
+// const worker = new TopLevelWorker(tango, "top");
+// console.log(worker);
+// worker.getSalary();
+// worker.getPosition();
+
+// TASK 11
+
+//3. Напиши класс Notes який управляє коллекцієй нотаток у
+//властивості items.
+//Нотатка це  об'єкт з властивостями text, priority
+//Додай класу статичну властивість Priopity,
+//в якій буде зберігатись об'єкт з пріорітетами ("hight", "middle", "low").
+//Додай методи addNote(note), removeNote(noteText)
+//updatePriority(noteText, newPriority)
+
+class Notes {
+  static Priopity = {
+    HIGHT: "hight",
+    MIDDLE: "middle",
+    LOW: "low",
+  };
+  constructor() {
+    this.items = [];
+  }
+  addNote(note) {
+    this.items.push(note);
+    console.log(this.items);
+  }
+  removeNote(noteText) {
+    this.items = this.items.filter((item) => noteText !== item.text);
+    return `Note ${noteText} was deleted `;
+  }
+}
