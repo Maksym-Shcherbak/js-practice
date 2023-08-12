@@ -160,11 +160,67 @@
 // Завдання 6
 // Натиснувши кнопку "Подвоювати", збільшити значення
 // у кожному елементі списку у 2 рази
-const listItems = document.querySelectorAll(".listItem");
-const button = document.querySelector("#double");
+// const listItems = document.querySelectorAll(".listItem");
+// const button = document.querySelector("#double");
 
-button.addEventListener("click", onButtonClick);
+// button.addEventListener("click", onButtonClick);
 
-function onButtonClick() {
-  listItems.forEach((item) => (item.textContent *= 2));
-}
+// function onButtonClick() {
+//   listItems.forEach((item) => (item.textContent *= 2));
+// }
+
+// TASK 7
+/*
+Завдання 13
+Коло має зникати при наведенні на нього.
+При цьому позиція сусідніх кіл має залишатися незмінною.
+*/
+
+// const liItems = document.querySelectorAll(".gridItem");
+
+// liItems.forEach((item) => {
+//   item.addEventListener("mouseenter", () => {
+//     item.classList.add("hide");
+//   });
+//   item.addEventListener("mouseleave", () => {
+//     item.classList.remove("hide");
+//   })
+// })
+
+// TASK 8
+// Завдання 14
+// Написати функцію, яка буде створювати список подій клавіатури event.key та event.code
+// Додати класи на список eventList, на елементи eventCode та eventKey
+
+// const divEl = document.querySelector(".eventThumb");
+// document.addEventListener("keydown", (event) => {
+//   const markup = `<ul class="eventList"><li class="eventKey">Key:${event.key}</li><li class="eventCode">Code:${event.code}</li></ul>`; 
+
+//   divEl.insertAdjacentHTML("afterbegin", markup);
+// }
+// )
+
+//TASK 9
+/*
+Завдання 12
+Клік по кнопці замінює символ першого поля введення на
+символ з другого поля введення в усьому тексті.
+Якщо одне з полів порожнє, викликай alert із проханням заповнити їх.
+*/
+
+// const text = document.querySelector(".text");
+// const inputFrom = document.querySelector("#from");
+// const inputTo = document.querySelector("#to");
+// const replaceButton = document.querySelector("#replaceButton");
+
+// replaceButton.addEventListener('click', replaceText);
+
+// function replaceText() {
+//   if (!inputFrom.value || !inputTo.value) {
+//     return alert("Треба заповнити усі рядки!");
+//   } 
+//   text.textContent = text.textContent.replaceAll(inputFrom.value, inputTo.value);
+//   inputFrom.value = "";
+//   inputTo.value = ""; 
+
+// }
