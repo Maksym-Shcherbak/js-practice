@@ -200,3 +200,27 @@
 // }
 // )
 
+//TASK 9
+/*
+Завдання 12
+Клік по кнопці замінює символ першого поля введення на
+символ з другого поля введення в усьому тексті.
+Якщо одне з полів порожнє, викликай alert із проханням заповнити їх.
+*/
+
+// const text = document.querySelector(".text");
+// const inputFrom = document.querySelector("#from");
+// const inputTo = document.querySelector("#to");
+// const replaceButton = document.querySelector("#replaceButton");
+
+// replaceButton.addEventListener('click', replaceText);
+
+// function replaceText() {
+//   if (!inputFrom.value || !inputTo.value) {
+//     return alert("Треба заповнити усі рядки!");
+//   } 
+//   text.textContent = text.textContent.replaceAll(inputFrom.value, inputTo.value);
+//   inputFrom.value = "";
+//   inputTo.value = ""; 
+
+// }
