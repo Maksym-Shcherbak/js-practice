@@ -134,3 +134,37 @@
 //   alert(submitValue);
 //   alertInput.value = "";
 // }
+
+// Task 5
+/*
+// Завдання 3
+// Кнопка "Приховати" ховає текст і замінює назву кнопки на
+// "Розкрити", при повторному натисканні текст знову стає доступним
+// і кнопка набуває початкового вигляду.
+// */
+// const input = document.querySelector("#passwordInput");
+// const button = document.querySelector("#passwordButton");
+
+// button.addEventListener("click", onButtonClick);
+
+// function onButtonClick() {
+//   if (button.textContent === "Приховати") {
+//     button.textContent = "Розкрити";
+//     input.style.color = "transparent";
+//   } else {
+//     button.textContent = "Приховати";
+//     input.style.color = "inherit";
+//   }
+// }
+// TASK 6
+// Завдання 6
+// Натиснувши кнопку "Подвоювати", збільшити значення
+// у кожному елементі списку у 2 рази
+const listItems = document.querySelectorAll(".listItem");
+const button = document.querySelector("#double");
+
+button.addEventListener("click", onButtonClick);
+
+function onButtonClick() {
+  listItems.forEach((item) => (item.textContent *= 2));
+}
