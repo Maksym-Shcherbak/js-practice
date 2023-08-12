@@ -296,7 +296,7 @@ const users = [
 //updatePriority(noteText, newPriority)
 
 class Notes {
-  static Priopity = {
+  static Priority = {
     HIGHT: "hight",
     MIDDLE: "middle",
     LOW: "low",
@@ -305,11 +305,140 @@ class Notes {
     this.items = [];
   }
   addNote(note) {
+    if (
+      this.items.some(
+        (item) => note.text.toLowerCase() === item.text.toLowerCase()
+      )
+    ) {
+      return showModal(
+        `Error! Note "${note.text}" is already in your collection!`
+      );
+    }
     this.items.push(note);
-    console.log(this.items);
+    return showModal(`Your note that called "${note.text}" added succesfully`);
   }
   removeNote(noteText) {
-    this.items = this.items.filter((item) => noteText !== item.text);
-    return `Note ${noteText} was deleted `;
+    if (
+      !this.items.some(
+        (item) => noteText.toLowerCase() === item.text.toLowerCase()
+      )
+    ) {
+      return showModal(
+        `Error! Note "${noteText}" is isn't in your collection!`
+      );
+    }
+    this.items = this.items.filter(
+      (item) => noteText.toLowerCase() !== item.text.toLowerCase()
+    );
+    return showModal(`Note "${noteText}" was deleted `);
   }
+  updatePriority(noteText, newPriority) {
+    if (
+      !this.items.some(
+        (item) => noteText.toLowerCase() === item.text.toLowerCase()
+      )
+    ) {
+      return showModal(
+        `Error! Note "${noteText}" is isn't in your collection!`
+      );
+    }
+    const noteFinded = this.items.find(
+      (item) => noteText.toLowerCase() === item.text.toLowerCase()
+    );
+    noteFinded.priority = newPriority;
+    return showModal(`Priority of "${noteText}" was updated`);
+  }
+}
+
+// додатковий інтерфейс для роботи з екземпляром класу
+const addBtn = document.querySelector("[data-add]");
+const removeBtn = document.querySelector("[data-remove]");
+const updateBtn = document.querySelector("[data-update]");
+const notes = document.querySelector(".notes");
+const prioritySelect = document.querySelector(".priority-select");
+const lowOption = document.querySelector("[data-option='low']");
+const middleOption = document.querySelector("[data-option='middle'");
+const hightOption = document.querySelector("[data-option='hight'");
+const textInput = document.querySelector(".text-input");
+let noteData = {};
+
+const diary = new Notes();
+
+lowOption.value = Notes.Priority.LOW;
+middleOption.value = Notes.Priority.MIDDLE;
+hightOption.value = Notes.Priority.HIGHT;
+
+textInput.addEventListener("input", _.debounce(saveDataNote, 400));
+prioritySelect.addEventListener("change", saveDataNote);
+
+addBtn.addEventListener("click", onCreateNote);
+removeBtn.addEventListener("click", onDeleteNote);
+updateBtn.addEventListener("click", onUpdateNote);
+
+function saveDataNote(event) {
+  const inputName = event.target.name;
+  noteData[inputName] = event.target.value;
+  const selectName = prioritySelect.name;
+  const selectValue = prioritySelect.value;
+  noteData[selectName] = selectValue;
+}
+
+function onCreateNote() {
+  const textInputValue = textInput.value;
+  if (!textInputValue) {
+    showModal("You can`t do this");
+  } else {
+    diary.addNote(noteData);
+    const noteElement = `<li class ="note-item"><h3 class ="note-item-title"> Title: ${noteData.text}</h3><p class ="note-priority">Priority: ${noteData.priority}</p></li>`;
+    notes.insertAdjacentHTML("beforeend", noteElement);
+    textInput.value = "";
+    noteData = {};
+  }
+}
+
+function onDeleteNote() {
+  if (!textInput.value) {
+    return showModal("You can`t do this");
+  }
+  diary.removeNote(noteData.text);
+  textInput.value = "";
+  updateNotesCard(diary.items);
+}
+
+function onUpdateNote() {
+  if (!textInput.value) {
+    return showModal("You can`t do this");
+  } else {
+    diary.updatePriority(noteData.text, noteData.priority);
+    textInput.value = "";
+    updateNotesCard(diary.items);
+  }
+}
+
+function isNoteInDiary(name) {
+  if (!this.items.some((item) => name === item.text)) {
+    return showModal(`Error! Note "${name}" is isn't in your collection!`);
+  }
+}
+
+function updateNotesCard(array) {
+  notes.innerHTML = "";
+  const markup = array
+    .map(
+      (note) =>
+        `<li class ="note-item"><h3 class ="note-item-title"> Title: ${note.text}</h3><p class ="note-priority">Priority: ${note.priority}</p></li>`
+    )
+    .join("");
+  notes.insertAdjacentHTML("beforeend", markup);
+}
+
+function showModal(message) {
+  const instance = basicLightbox.create(`
+    <div class="modal">
+        <p>
+            ${message}
+        </p>
+    </div>
+`);
+  instance.show();
 }
